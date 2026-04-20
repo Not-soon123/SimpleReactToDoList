@@ -1,0 +1,38 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid black;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.container h1{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container ul li{
+    list-style: none;
+    
+}
+
+.container .btn-input{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
