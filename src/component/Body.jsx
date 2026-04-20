@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./body.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 function Body(){
    const [task, setTask] = useState("");
@@ -28,7 +29,22 @@ function Body(){
            
             <ul>
                 {taskList.map((item, index) => (
-                    <li key={index}>{item}</li>
+                    <li key={index} style={{ display: "flex", gap: "10px" }}>
+                        <span>{item}</span>
+                        <i className="bi bi-pencil-square"  
+                        style={{
+                                fontSize: "18px",
+                                cursor: "pointer",
+                                color: "#0d6efd"}}></i>
+                        <i className="bi bi-trash" 
+                        style={{
+                                fontSize: "18px",
+                                cursor: "pointer",
+                                color: "#dc3545",
+                                fontWeight: "2px"
+
+        }}></i>
+                    </li>
                 ))}
             </ul>
         </div>
