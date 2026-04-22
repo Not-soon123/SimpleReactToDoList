@@ -15,6 +15,10 @@ function Body() {
   function handleChange(e) {
     setTask(e.target.value);
   }
+  function handleDelete(indexTobeDeleted) {
+    const newList = taskList.filter((item,index) => index !== indexTobeDeleted);
+    setTaskList(newList);
+  }
 
   return (
     <div className="container">
@@ -38,9 +42,9 @@ function Body() {
           <li key={index} className="task-item">
             <span>{item}</span>
 
-            <i className="bi bi-pencil-square edit-icon"></i>
+            <i  className="bi bi-pencil-square edit-icon"></i>
 
-            <i className="bi bi-trash delete-icon"></i>
+            <i onClick={() => handleDelete(index)} className="bi bi-trash delete-icon"></i>
           </li>
         ))}
       </ul>
