@@ -20,6 +20,16 @@ function Body() {
     setTaskList(newList);
   }
 
+  function handleEdit(indexToBeEdited) {
+    const newTask = prompt("Edit your task:", taskList[indexToBeEdited]);
+    if (newTask !== null && newTask.trim() !== "") {
+      const updatedList = [...taskList];
+      updatedList[indexToBeEdited] = newTask;
+      setTaskList(updatedList);
+    }  
+
+  }
+
   return (
     <div className="container">
       <h1>ToDo-List</h1>
@@ -42,7 +52,7 @@ function Body() {
           <li key={index} className="task-item">
             <span>{item}</span>
 
-            <i  className="bi bi-pencil-square edit-icon"></i>
+            <i  onClick={() => handleEdit(index)} className="bi bi-pencil-square edit-icon"></i>
 
             <i onClick={() => handleDelete(index)} className="bi bi-trash delete-icon"></i>
           </li>
