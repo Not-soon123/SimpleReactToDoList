@@ -134,3 +134,20 @@ ul {
 .delete-icon:hover {
   transform: scale(1.2);
 }
+
+.download-btn {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.download-btn:hover {
+  background-color: #27ae60;
+}
