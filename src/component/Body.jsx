@@ -1,4 +1,5 @@
 import { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./body.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { jsPDF } from "jspdf";
@@ -30,6 +31,26 @@ function Body() {
       setTaskList(updatedList);
     }
   }
+
+  function handleUpMovement(index) {
+    // Logic to move the selected task up in the list
+        if (index > 0) {
+            const newList = [...taskList];
+            [newList[index - 1], newList[index]] = [newList[index], newList[index - 1]];
+            setTaskList(newList);
+        }
+    }
+     
+
+  function handleDownMovement(index) {
+    // Logic to move the selected task down in the list
+        if (index < taskList.length - 1) {
+            const newList = [...taskList];
+            [newList[index], newList[index + 1]] = [newList[index + 1], newList[index]];
+            setTaskList(newList);
+        }
+    } 
+    
 
   // ✅ PDF DOWNLOAD FUNCTION (IMPROVED)
   function downloadPDF() {
@@ -80,6 +101,11 @@ function Body() {
       <ul>
         {taskList.map((item, index) => (
           <li key={index} className="task-item">
+            <i>
+              <button className="btn btn-outline-primary" onClick={() => handleUpMovement(index)}>Up</button>
+              <button className="btn btn-outline-primary" onClick={() => handleDownMovement(index)}>Down</button>
+            </i>
+
             <span>{item}</span>
 
             <i
@@ -91,6 +117,8 @@ function Body() {
               onClick={() => handleDelete(index)}
               className="bi bi-trash delete-icon"
             ></i>
+
+            <i></i>
           </li>
         ))}
       </ul>
